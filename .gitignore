@@ -1,0 +1,18 @@
+# OS junk
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor/IDE
+.vscode/
+.idea/
+*.swp
+
+# PowerShell
+*.ps1.bak
+*_history.txt
+
+# Anything explicitly marked local/secret
+*.local.*
+*secret*
+*.env
