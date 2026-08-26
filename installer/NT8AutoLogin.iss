@@ -8,8 +8,12 @@
 ; (see .github/workflows/build-installer.yml for the CI build)
 
 #define MyAppName "NT8 Auto-Login"
-#define MyAppVersion "1.0.1"
+#define MyAppVersion "1.0.2"
 #define MyAppPublisher "Laith Sinawi"
+; NinjaTrader's own default install location. Shortcuts point their icon
+; here (into NinjaTrader.exe's own icon resource) instead of bundling a
+; copy of NinjaTrader's icon artwork in this installer/repo.
+#define NinjaTraderExePath "{pf}\NinjaTrader 8\bin\NinjaTrader.exe"
 
 [Setup]
 AppId={{1550E24C-1CE5-43A3-B123-456098EB7032}
@@ -26,8 +30,7 @@ OutputBaseFilename=NT8AutoLogin-Setup
 Compression=lzma
 SolidCompression=yes
 WizardStyle=modern
-SetupIconFile=assets\NinjaTrader.ico
-UninstallDisplayIcon={app}\NinjaTrader.ico
+UninstallDisplayIcon={#NinjaTraderExePath}
 
 [Languages]
 Name: "english"; MessagesFile: "compiler:Default.isl"
@@ -40,13 +43,12 @@ Source: "..\Launch-NT8-AutoLogin.ps1"; DestDir: "{app}"; Flags: ignoreversion
 Source: "..\Setup-NT8Credential.ps1"; DestDir: "{app}"; Flags: ignoreversion
 Source: "..\CredentialStore.ps1"; DestDir: "{app}"; Flags: ignoreversion
 Source: "..\README.md"; DestDir: "{app}"; Flags: ignoreversion
-Source: "assets\NinjaTrader.ico"; DestDir: "{app}"; Flags: ignoreversion
 
 [Icons]
-Name: "{group}\NT8 Auto-Login"; Filename: "powershell.exe"; Parameters: "-WindowStyle Hidden -ExecutionPolicy Bypass -File ""{app}\Launch-NT8-AutoLogin.ps1"""; WorkingDir: "{app}"; IconFilename: "{app}\NinjaTrader.ico"
-Name: "{group}\Set Up NT8 Credential"; Filename: "powershell.exe"; Parameters: "-NoExit -ExecutionPolicy Bypass -File ""{app}\Setup-NT8Credential.ps1"""; WorkingDir: "{app}"; IconFilename: "{app}\NinjaTrader.ico"
+Name: "{group}\NT8 Auto-Login"; Filename: "powershell.exe"; Parameters: "-WindowStyle Hidden -ExecutionPolicy Bypass -File ""{app}\Launch-NT8-AutoLogin.ps1"""; WorkingDir: "{app}"; IconFilename: "{#NinjaTraderExePath}"
+Name: "{group}\Set Up NT8 Credential"; Filename: "powershell.exe"; Parameters: "-NoExit -ExecutionPolicy Bypass -File ""{app}\Setup-NT8Credential.ps1"""; WorkingDir: "{app}"; IconFilename: "{#NinjaTraderExePath}"
 Name: "{group}\Uninstall NT8 Auto-Login"; Filename: "{uninstallexe}"
-Name: "{autodesktop}\NT8 Auto-Login"; Filename: "powershell.exe"; Parameters: "-WindowStyle Hidden -ExecutionPolicy Bypass -File ""{app}\Launch-NT8-AutoLogin.ps1"""; WorkingDir: "{app}"; IconFilename: "{app}\NinjaTrader.ico"; Tasks: desktopicon
+Name: "{autodesktop}\NT8 Auto-Login"; Filename: "powershell.exe"; Parameters: "-WindowStyle Hidden -ExecutionPolicy Bypass -File ""{app}\Launch-NT8-AutoLogin.ps1"""; WorkingDir: "{app}"; IconFilename: "{#NinjaTraderExePath}"; Tasks: desktopicon
 
 [Run]
 Filename: "powershell.exe"; Parameters: "-NoExit -ExecutionPolicy Bypass -File ""{app}\Setup-NT8Credential.ps1"""; Description: "Set up your NinjaTrader credential now"; Flags: postinstall runascurrentuser skipifsilent
