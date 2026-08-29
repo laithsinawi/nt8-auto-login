@@ -98,3 +98,8 @@ Then create a shortcut with:
   detection stops working, the script will just time out after 60s and print
   a warning — it won't type your password into the wrong place, since it
   only acts once it finds a password field *and* a "Log In" button together.
+
+## About
+
+Built and maintained by [Price Action Tools](https://priceactiontools.com),
+makers of NinjaTrader 8 indicators and trading tools.
