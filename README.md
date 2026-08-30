@@ -7,10 +7,10 @@ Runs on Windows only (this is where NT8 itself runs).
 
 ## Install
 
-1. Grab [the exe](dist) from this repo and copy it to the Windows PC. (A
-   fresh build is also produced by the **Build Installer** GitHub Action on
-   every push, under its Artifacts, if you want the latest instead of the
-   checked-in copy.)
+1. Grab [`NT8AutoLogin-Setup.exe`](dist) from this repo and copy it to the
+   Windows PC. (A fresh build is also produced by the **Build Installer**
+   GitHub Action on every push, under its Artifacts, if you want the latest
+   instead of the checked-in copy.)
 2. Run it. It's a normal per-machine-user installer — no admin rights
    needed. It will:
    - Install the scripts to `%LocalAppData%\NT8AutoLogin`.
