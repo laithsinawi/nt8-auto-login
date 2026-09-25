@@ -103,3 +103,8 @@ Then create a shortcut with:
 
 Built and maintained by [Price Action Tools](https://priceactiontools.com),
 makers of NinjaTrader 8 indicators and trading tools.
+
+## License
+
+Released under the [MIT License](LICENSE) — free to use, modify, and
+redistribute, provided the copyright notice is kept.
