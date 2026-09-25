@@ -141,6 +141,12 @@ try {
             Write-Error "NinjaTrader.exe not found at '$NinjaTraderExePath'. Pass -NinjaTraderExePath with the correct location."
             exit 1
         }
+        # Repair chart windows NT8 saved with no tabs, and snapshot healthy
+        # workspaces, before NT8 loads them. Never blocks the launch.
+        $guard = Join-Path $PSScriptRoot 'NT8-WorkspaceGuard.ps1'
+        if (Test-Path $guard) {
+            try { & $guard } catch { Write-Warning "Workspace guard failed: $($_.Exception.Message)" }
+        }
         Start-Process -FilePath $NinjaTraderExePath | Out-Null
     }
 

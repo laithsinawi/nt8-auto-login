@@ -42,6 +42,7 @@ Name: "desktopicon"; Description: "Create a &desktop shortcut"; GroupDescription
 Source: "..\Launch-NT8-AutoLogin.ps1"; DestDir: "{app}"; Flags: ignoreversion
 Source: "..\Setup-NT8Credential.ps1"; DestDir: "{app}"; Flags: ignoreversion
 Source: "..\CredentialStore.ps1"; DestDir: "{app}"; Flags: ignoreversion
+Source: "..\NT8-WorkspaceGuard.ps1"; DestDir: "{app}"; Flags: ignoreversion
 Source: "..\README.md"; DestDir: "{app}"; Flags: ignoreversion
 
 [Icons]
